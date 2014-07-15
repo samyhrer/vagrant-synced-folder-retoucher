@@ -8,7 +8,7 @@ var watcher = chokidar.watch(".", {
   });
 
 watcher.on('change', function(path) {
-  touch(__dirname + '/' + path);
+  touch(path);
 });
 
 module.exports = watcher
