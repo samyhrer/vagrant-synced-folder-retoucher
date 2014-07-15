@@ -1,0 +1,14 @@
+{
+  "name": "vagrant-synced-folder-retoucher",
+  "version": "0.0.1",
+  "description": "When making changes to files in a vagrant synced folder on the host the change events are not triggered within the virtual machine. This script watches a given directory and make sure the changed files are touched again in order for the VM to trigger the correct changed events. Motivation for this script is for tools like webpack-dev-server to work in a Vagrant VM",
+  "bin": {
+    "start-vagrant-synced-folder-retoucher": "bin/init"
+  },
+  "author": "Svein Arild Myhrer",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "chokidar": "0.8.2",
+    "touch": "0.0.3"
+  }
+}
