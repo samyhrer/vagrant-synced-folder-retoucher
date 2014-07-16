@@ -11,7 +11,6 @@ module.exports = function(dir){
 
   watcher
     .on('change', function(path) {
-      console.log("change: " + path);
       touch(path);
     });
 }
