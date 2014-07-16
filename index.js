@@ -1,14 +1,17 @@
 var chokidar = require('chokidar');
-var touch = require('touch')
+var touch = require('touch');
 
-var watcher = chokidar.watch(".", {
-  ignored: /node_modules/i,
-  ignoreInitial: true,
-  persistent: true
-  });
+module.exports = function(dir){
 
-watcher.on('change', function(path) {
-  touch(path);
-});
+  var watcher = chokidar.watch(dir, {
+      ignored: /node_modules|\.swp/i,
+      ignoreInitial: true,
+      persistent: true
+    });
 
-module.exports = watcher
+  watcher
+    .on('change', function(path) {
+      console.log("change: " + path);
+      touch(path);
+    });
+}
